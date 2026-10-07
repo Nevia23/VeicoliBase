@@ -1,0 +1,3 @@
+macchina=com.betacom.veicoli.services.MacchinaImpl
+moto=com.betacom.veicoli.services.MotoImpl
+bici=com.betacom.veicoli.services.BiciImpl
