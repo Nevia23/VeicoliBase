@@ -12,15 +12,6 @@ public abstract class VeicoloAbstract {
 
 	public abstract void add(String ope, String parametri) throws Exception;
 
-	public Map<String, String> decodeParams(String par) {
-		String[] p = par.split(",");
-
-		Map<String, String> map = Arrays.stream(p).map(s -> s.split("=", 2))
-				.collect(Collectors.toMap(arr -> arr[0].trim(), arr -> arr[1].trim()));
-
-		return map;
-	}
-
 	public Veicoli controlExecute(Veicoli veicolo, Map<String, String> params) throws Exception {
 
 		veicolo.setTipoAlimentazione(validaValore(params, "alim", "Tipo alimentazione invalida"));

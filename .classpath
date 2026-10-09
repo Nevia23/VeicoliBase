@@ -9,5 +9,8 @@
 	<classpathentry kind="lib" path="C:/Users/Bianca/eclipse-workspace/VeicoliBase/lib/lombok.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Bianca/eclipse-workspace/VeicoliBase/lib/slf4j-api-2.0.9.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Bianca/eclipse-workspace/VeicoliBase/lib/slf4j-simple-2.0.9.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Bianca/eclipse-workspace/JavaBase/lib/jackson-annotations-2.20.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Bianca/eclipse-workspace/JavaBase/lib/jackson-core-2.20.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Bianca/eclipse-workspace/JavaBase/lib/jackson-databind-2.20.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

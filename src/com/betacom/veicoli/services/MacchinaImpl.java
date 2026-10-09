@@ -4,6 +4,7 @@ import java.util.Map;
 
 import com.betacom.veicoli.models.Macchina;
 import com.betacom.veicoli.singleton.ArchivioVeicoli;
+import com.betacom.veicoli.utils.Utilities;
 
 public class MacchinaImpl extends VeicoloAbstract {
 
@@ -12,7 +13,7 @@ public class MacchinaImpl extends VeicoloAbstract {
 
 		System.out.println("Execute Macchina " + ope);
 
-		Map<String, String> p = decodeParams(params);
+		Map<String, String> p = Utilities.decodeParams(params);
 
 		Macchina mac = new Macchina();
 		mac.setTipoVeicolo("macchina");
@@ -27,7 +28,7 @@ public class MacchinaImpl extends VeicoloAbstract {
 		mac.setTarga(p.get("targa").toUpperCase());
 
 		mac = (Macchina) ArchivioVeicoli.getInstance().insertVeicolo(mac);
-		System.out.println("Macchina inserita");
+		System.out.println("*** Macchina inserita ***");
 
 	}
 }

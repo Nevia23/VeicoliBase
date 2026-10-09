@@ -6,6 +6,7 @@ import java.util.Map;
 import com.betacom.veicoli.exceptions.ExceptionVeicoli;
 import com.betacom.veicoli.interfaces.OperationInterface;
 import com.betacom.veicoli.services.VeicoloAbstract;
+import com.betacom.veicoli.singleton.ArchivioVeicoli;
 import com.betacom.veicoli.utils.Utilities;
 
 public class AddOperation implements OperationInterface {
@@ -36,5 +37,7 @@ public class AddOperation implements OperationInterface {
 			throw new ExceptionVeicoli("il tipo " + tipo + " non è previsto");
 
 		impl.get(tipo).add("add", parametri);
+		
+		Utilities.export(ArchivioVeicoli.getInstance().getListaVeicoli());
 	}
 }

@@ -4,12 +4,16 @@ import java.util.Map;
 
 import com.betacom.veicoli.models.Bici;
 import com.betacom.veicoli.singleton.ArchivioVeicoli;
+import com.betacom.veicoli.utils.Utilities;
 
 public class BiciImpl extends VeicoloAbstract {
 
 	@Override
 	public void add(String ope, String parametri) throws Exception {
-		Map<String, String> map = decodeParams(parametri);
+		
+		System.out.println("Execute Bici " + ope);
+
+		Map<String, String> map = Utilities.decodeParams(parametri);
 		Bici nuovaBici = new Bici();
 		nuovaBici.setTipoVeicolo("bici");
 
@@ -25,7 +29,7 @@ public class BiciImpl extends VeicoloAbstract {
 
 		nuovaBici = (Bici) ArchivioVeicoli.getInstance().insertVeicolo(nuovaBici);
 		
-		System.out.println(".... Bici inserita");
+		System.out.println("*** Bici inserita ***");
 		
 	}
 }

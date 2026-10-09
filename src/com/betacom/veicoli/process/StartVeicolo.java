@@ -18,6 +18,11 @@ public class StartVeicolo {
 
 	public void execute(List<String> param) {
 		System.out.println("Begin StartVeicolo");
+		System.out.println("Numero parametri: " + param.size());
+		
+		for (String par : param) {
+		    System.out.println("PARAMETRO: " + par);
+		}
 
 //		Map<String, VeicoloAbstract> impl = new HashMap<>();
 //		Utilities.readFile("assets/tipi.txt").forEach(it -> {

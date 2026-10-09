@@ -7,6 +7,8 @@ import java.util.List;
 import java.util.Map;
 
 import com.betacom.veicoli.exceptions.ExceptionVeicoli;
+import com.betacom.veicoli.models.Macchina;
+import com.betacom.veicoli.models.Moto;
 import com.betacom.veicoli.models.Veicoli;
 import com.betacom.veicoli.utils.Utilities;
 
@@ -42,7 +44,7 @@ public class ArchivioVeicoli {
 		String[] values = controlli.get(key);
 
 		if (values == null)
-	        throw new ExceptionVeicoli("Chiave di controllo non prevista: " + key);
+			throw new ExceptionVeicoli("Chiave di controllo non prevista: " + key);
 
 		return Arrays.stream(values).anyMatch(x -> x.equalsIgnoreCase(value));
 	}
@@ -55,15 +57,43 @@ public class ArchivioVeicoli {
 		return false;
 	}
 
+	public void caricaJson(List<Veicoli> lV) {
+		listaVeicoli = lV;
+		
+		if (!listaVeicoli.isEmpty()) {
+			Integer maxId = lV.stream()
+					.map(v -> v.getId())
+	                .max((a, b) -> Integer.compare(a, b))
+	                .orElse(0);
+			
+			counter = maxId;
+		} else {
+			counter = 0;
+		}
+	}
+
 	public Veicoli insertVeicolo(Veicoli v) {
 		v.setId(++counter);
 		listaVeicoli.add(v);
 		return v;
 	}
 
-	public void remove(Integer id) {
-		listaVeicoli.removeIf(it -> it.getId() == id);
+	public String getTarga(Veicoli v) {
+		if (v instanceof Macchina)
+			return ((Macchina) v).getTarga();
+		if (v instanceof Moto)
+			return ((Moto) v).getTarga();
+		return null; // la bici non ha targa
+	}
 
+	public void remove(Integer id) {
+		Veicoli v = listaVeicoli.stream().filter(x -> x.getId().equals(id)).findFirst().orElse(null);
+		if (v == null)
+			throw new ExceptionVeicoli("Veicolo non trovato: " + id);
+		String t = getTarga(v);
+		if (t != null)
+			lTarghe.remove(t.toUpperCase());
+		listaVeicoli.remove(v);
 	}
 
 	public List<Veicoli> getListaVeicoli() {

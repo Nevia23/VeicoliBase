@@ -1,6 +1,1 @@
-add;macchina;ruote=4,alim=benzina,cat=strada,colore=bianco,marca=fiat,anno=2025,modello=500,porte=4,targa=el234gx,cc=1200
-add;macchina;ruote=4,alim=diesel,cat=strada,colore=nero,marca=fiat,anno=2025,modello=500,porte=4,targa=el934gx,cc=1200
-add;macchina;ruote=4,alim=benzina,cat=fuoristrada,colore=bianco,marca=fiat,anno=2025,modello=500,porte=4,targa=fi234kx,cc=1200
-add;moto;ruote=2,alim=benzina,cat=strada,colore=nero,marca=Yamaha,anno=2025,modello=r1,targa=EL22239,cc=900
-add;bici;ruote=2,alim=manuale,cat=strada,colore=nero,marca=Bianchi,anno=2025,modello=Grizl 5,marce=10,sospensione=senza,pieghevole=false
-list
+add;macchina;ruote=4,alim=diesel,cat=strada,colore=blu,marca=fiat,anno=2025,modello=500,porte=4,targa=el234gx,cc=1200

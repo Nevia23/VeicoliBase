@@ -4,12 +4,16 @@ import java.util.Map;
 
 import com.betacom.veicoli.models.Moto;
 import com.betacom.veicoli.singleton.ArchivioVeicoli;
+import com.betacom.veicoli.utils.Utilities;
 
 public class MotoImpl extends VeicoloAbstract {
 
 	@Override
 	public void add(String ope, String params) throws Exception {
-		Map<String, String> p = decodeParams(params);
+		
+		System.out.println("Execute Moto " + ope);
+
+		Map<String, String> p = Utilities.decodeParams(params);
 		
 		Moto moto = new Moto();
 		moto.setTipoVeicolo("moto");
@@ -23,7 +27,7 @@ public class MotoImpl extends VeicoloAbstract {
 		moto.setCc(parseIntParam(p, "cc", "Cilindrata invalida"));
 		
 		moto = (Moto) ArchivioVeicoli.getInstance().insertVeicolo(moto);
-		System.out.println("Moto inserita");
+		System.out.println("*** Moto inserita ***");
 		
 	}
 
